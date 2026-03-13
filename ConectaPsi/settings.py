@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-
-
+    # ativar meus apps
     "website.apps.WebsiteConfig",
+    "psico.apps.PsicoConfig"
 ]
 
 MIDDLEWARE = [
