@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+
+actor Paciente
+actor Profissional
+actor Administrador
+
+rectangle Sistema {
+
+  Paciente -- (Cadastrar-se)
+  Paciente -- (Login)
+  Paciente -- (Atualizar perfil)
+  Paciente -- (Agendar consulta)
+  Paciente -- (Cancelar consulta)
+  Paciente -- (Visualizar consultas)
+  Paciente -- (Visualizar histórico)
+
+  Profissional -- (Login)
+  Profissional -- (Gerenciar agenda)
+  Profissional -- (Visualizar consultas)
+  Profissional -- (Atender consulta)
+  Profissional -- (Registrar prontuário)
+  Profissional -- (Visualizar histórico do paciente)
+
+  Administrador -- (Gerenciar usuários)
+  Administrador -- (Gerenciar especialidades)
+  Administrador -- (Gerenciar profissionais)
+  Administrador -- (Gerenciar pacientes)
+  Administrador -- (Gerenciar pagamentos)
+
+}
+
+@enduml

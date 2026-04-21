@@ -1,0 +1,174 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class User {
+  +id: int
+  +username: string
+  +password: string
+  +email: string
+  +is_active: boolean
+}
+
+class Paciente {
+  +id: int
+  +cpf: string
+  +telefone: string
+  +data_nascimento: date
+  +endereco: string
+}
+
+class Profissional {
+  +id: int
+  +crp: string
+  +telefone: string
+  +bio: string
+}
+
+class Especialidade {
+  +id: int
+  +nome: string
+  +descricao: string
+}
+
+class Agenda {
+  +id: int
+  +dia_semana: int
+  +hora_inicio: time
+  +hora_fim: time
+  +ativo: boolean
+}
+
+class Consulta {
+  +id: int
+  +data: date
+  +hora: time
+  +status: string
+  +motivo: string
+}
+
+class Prontuario {
+  +id: int
+  +descricao: text
+  +data_registro: datetime
+  +diagnostico: string
+  +observacoes: text
+  +paciente_id: int
+  +profissional_id: int
+  +consulta_id: int
+}
+
+class Pagamento {
+  +id: int
+  +valor: decimal
+  +data_pagamento: date
+  +status: string
+  +metodo: string
+}
+
+User "1" -- "1" Paciente
+User "1" -- "1" Profissional
+
+Profissional "N" -- "1" Especialidade
+
+Profissional "1" -- "N" Agenda
+
+Paciente "1" -- "N" Consulta
+Profissional "1" -- "N" Consulta
+
+Consulta "1" -- "N" Prontuario
+Paciente "1" -- "N" Prontuario
+Profissional "1" -- "N" Prontuario
+
+Consulta "1" -- "0..1" Pagamento
+
+@enduml
+
+
+' @startuml
+' skinparam classAttributeIconSize 0
+
+' class User {
+'   +id: int
+'   +username: string
+'   +password: string
+'   +email: string
+'   +is_active: boolean
+' }
+
+' class Paciente {
+'   +id: int
+'   +cpf: string
+'   +telefone: string
+'   +data_nascimento: date
+'   +endereco: string
+' }
+
+' class Profissional {
+'   +id: int
+'   +crp: string
+'   +telefone: string
+'   +bio: string
+' }
+
+' class Especialidade {
+'   +id: int
+'   +nome: string
+'   +descricao: string
+' }
+
+' class Disponibilidade {
+'   +id: int
+'   +dia_semana: int
+'   +hora_inicio: time
+'   +hora_fim: time
+'   +ativo: boolean
+' }
+
+' class Horario {
+'   +id: int
+'   +data: date
+'   +hora_inicio: time
+'   +hora_fim: time
+'   +disponivel: boolean
+' }
+
+' class Consulta {
+'   +id: int
+'   +status: string
+'   +motivo: string
+' }
+
+' class Prontuario {
+'   +id: int
+'   +descricao: text
+'   +data_registro: datetime
+'   +diagnostico: string
+'   +observacoes: text
+' }
+
+' class Pagamento {
+'   +id: int
+'   +valor: decimal
+'   +data_pagamento: date
+'   +status: string
+'   +metodo: string
+' }
+
+' User "1" -- "1" Paciente
+' User "1" -- "1" Profissional
+
+' Profissional "*" -- "*" Especialidade
+
+' Profissional "1" -- "*" Disponibilidade
+' Disponibilidade "1" -- "*" Horario
+
+' Profissional "1" -- "*" Horario
+
+' Paciente "1" -- "*" Consulta
+' Profissional "1" -- "*" Consulta
+' Horario "1" -- "0..1" Consulta
+
+' Consulta "1" -- "1" Prontuario
+' Consulta "1" -- "0..1" Pagamento
+
+' @enduml
