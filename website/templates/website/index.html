@@ -1,0 +1,16 @@
+{% extends "website/model.html" %}
+
+{% block title %}Início{% endblock %}
+
+{% block conteudo %}
+
+<div class="text-center">
+    <h1>Bem-vindo à Clínica Psicológica</h1>
+    <p class="lead">Agende seus atendimentos de forma simples e rápida</p>
+
+    <a href="{% url 'agendamento-create' %}" class="btn btn-primary mt-3">
+        Novo Agendamento
+    </a>
+</div>
+
+{% endblock %}
