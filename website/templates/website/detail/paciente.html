@@ -1,0 +1,151 @@
+{% extends "website/model.html" %}
+
+{% block title %}
+Detalhes do Paciente | ConectaPsi
+{% endblock %}
+
+{% block conteudo %}
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="hero-card">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+                        <div>
+
+                            <h2 class="section-title mb-1">
+                                Detalhes do Paciente
+                            </h2>
+
+                            <p class="section-text mb-0">
+                                Informações completas do paciente.
+                            </p>
+
+                        </div>
+
+                        <a href="{% url 'paciente-list' %}" class="btn btn-outline-primary">
+                            Voltar
+                        </a>
+
+                    </div>
+
+                    <div class="row g-4">
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Paciente</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.user.get_full_name|default:object.user.username }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>CPF</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.cpf }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Telefone</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.telefone }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Data de nascimento</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.data_nascimento }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12">
+
+                            <div class="mini-card">
+
+                                <strong>Endereço</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.endereco }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Cadastrado em</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.cadastrado_em }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Atualizado em</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.atualizado_em }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

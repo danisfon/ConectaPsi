@@ -1,0 +1,151 @@
+{% extends "website/model.html" %}
+
+{% block title %}
+Detalhes do Prontuário | ConectaPsi
+{% endblock %}
+
+{% block conteudo %}
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="hero-card">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+                        <div>
+
+                            <h2 class="section-title mb-1">
+                                Detalhes do Prontuário
+                            </h2>
+
+                            <p class="section-text mb-0">
+                                Informações completas do prontuário.
+                            </p>
+
+                        </div>
+
+                        <a href="{% url 'prontuario-list' %}" class="btn btn-outline-primary">
+                            Voltar
+                        </a>
+
+                    </div>
+
+                    <div class="row g-4">
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Consulta</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.consulta }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Paciente</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.paciente }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Profissional</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.profissional }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Data do Registro</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.data_registro }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12">
+
+                            <div class="mini-card">
+
+                                <strong>Descrição</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.descricao }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12">
+
+                            <div class="mini-card">
+
+                                <strong>Diagnóstico</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.diagnostico|default:"Sem diagnóstico" }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12">
+
+                            <div class="mini-card">
+
+                                <strong>Observações</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.observacoes|default:"Sem observações" }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

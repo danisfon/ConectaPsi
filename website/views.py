@@ -30,7 +30,7 @@ class SobreView(TemplateView):
 
 class PacienteCreate(CreateView):
     model = Paciente
-    fields = ['usuario', 'cpf', 'telefone', 'data_nascimento', 'endereco']
+    fields = ['user', 'cpf', 'telefone', 'data_nascimento', 'endereco']
     template_name = 'website/form.html'
     success_url = reverse_lazy('paciente-list')
 
@@ -42,7 +42,7 @@ class PacienteCreate(CreateView):
 
 class PacienteUpdate(UpdateView):
     model = Paciente
-    fields = ['usuario', 'cpf', 'telefone', 'data_nascimento', 'endereco']
+    fields = ['user', 'cpf', 'telefone', 'data_nascimento', 'endereco']
     template_name = 'website/form.html'
     success_url = reverse_lazy('paciente-list')
 
@@ -122,7 +122,7 @@ class EspecialidadeDetail(DetailView):
 
 class ProfissionalCreate(CreateView):
     model = Profissional
-    fields = ['usuario', 'crp', 'telefone', 'bio', 'especialidade']
+    fields = ['user', 'crp', 'telefone', 'bio', 'especialidade']
     template_name = 'website/form.html'
     success_url = reverse_lazy('profissional-list')
 
@@ -134,7 +134,7 @@ class ProfissionalCreate(CreateView):
 
 class ProfissionalUpdate(UpdateView):
     model = Profissional
-    fields = ['usuario', 'crp', 'telefone', 'bio', 'especialidade']
+    fields = ['user', 'crp', 'telefone', 'bio', 'especialidade']
     template_name = 'website/form.html'
     success_url = reverse_lazy('profissional-list')
 

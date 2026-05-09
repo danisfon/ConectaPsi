@@ -1,0 +1,151 @@
+{% extends "website/model.html" %}
+
+{% block title %}
+Detalhes do Profissional | ConectaPsi
+{% endblock %}
+
+{% block conteudo %}
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="hero-card">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+                        <div>
+
+                            <h2 class="section-title mb-1">
+                                Detalhes do Profissional
+                            </h2>
+
+                            <p class="section-text mb-0">
+                                Informações completas do profissional.
+                            </p>
+
+                        </div>
+
+                        <a href="{% url 'profissional-list' %}" class="btn btn-outline-primary">
+                            Voltar
+                        </a>
+
+                    </div>
+
+                    <div class="row g-4">
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Profissional</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.user.get_full_name|default:object.user.username }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Especialidade</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.especialidade }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>CRP</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.crp }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Telefone</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.telefone }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12">
+
+                            <div class="mini-card">
+
+                                <strong>Biografia</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.bio|default:"Sem biografia" }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Status</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {% if object.ativo %}Ativo{% else %}Inativo{% endif %}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Atualizado em</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.atualizado_em }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

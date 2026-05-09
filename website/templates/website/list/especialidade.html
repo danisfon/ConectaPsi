@@ -1,0 +1,110 @@
+{% extends "website/model.html" %}
+
+{% block title %}
+Lista de Especialidades | ConectaPsi
+{% endblock %}
+
+{% block conteudo %}
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <div>
+
+                <h2 class="section-title mb-1">
+                    Especialidades
+                </h2>
+
+                <p class="section-text mb-0">
+                    Visualize todas as especialidades cadastradas no sistema.
+                </p>
+
+            </div>
+
+            <a href="{% url 'especialidade-create' %}" class="btn btn-primary">
+                Nova Especialidade
+            </a>
+
+        </div>
+
+        <div class="hero-card">
+
+            <div class="table-responsive">
+
+                <table class="table align-middle">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th class="text-center">Ações</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for especialidade in object_list %}
+
+                        <tr>
+
+                            <td>
+                                {{ especialidade.nome }}
+                            </td>
+
+                            <td>
+                                {{ especialidade.descricao|default:"-" }}
+                            </td>
+
+                            <td class="text-center">
+
+                                <a href="{% url 'especialidade-detail' especialidade.pk %}"
+                                   class="btn btn-sm btn-outline-primary">
+                                    Detalhes
+                                </a>
+
+                                <a href="{% url 'especialidade-update' especialidade.pk %}"
+                                   class="btn btn-sm btn-outline-warning">
+                                    Editar
+                                </a>
+
+                                <a href="{% url 'especialidade-delete' especialidade.pk %}"
+                                   class="btn btn-sm btn-outline-danger">
+                                    Excluir
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+                        {% empty %}
+
+                        <tr>
+
+                            <td colspan="3" class="text-center py-4">
+                                Nenhuma especialidade cadastrada.
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

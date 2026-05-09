@@ -1,0 +1,123 @@
+{% extends "website/model.html" %}
+
+{% block title %}
+Detalhes da Agenda | ConectaPsi
+{% endblock %}
+
+{% block conteudo %}
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="hero-card">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+                        <div>
+
+                            <h2 class="section-title mb-1">
+                                Detalhes da Agenda
+                            </h2>
+
+                            <p class="section-text mb-0">
+                                Informações completas da agenda do profissional.
+                            </p>
+
+                        </div>
+
+                        <a href="{% url 'agenda-list' %}" class="btn btn-outline-primary">
+                            Voltar
+                        </a>
+
+                    </div>
+
+                    <div class="row g-4">
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Profissional</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.profissional }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Dia da Semana</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.get_dia_semana_display }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Hora de Início</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.hora_inicio }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Hora de Fim</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.hora_fim }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12">
+
+                            <div class="mini-card">
+
+                                <strong>Status</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {% if object.ativo %}Ativa{% else %}Inativa{% endif %}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

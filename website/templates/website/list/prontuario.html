@@ -1,0 +1,120 @@
+{% extends "website/model.html" %}
+
+{% block title %}
+Lista de Prontuários | ConectaPsi
+{% endblock %}
+
+{% block conteudo %}
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <div>
+
+                <h2 class="section-title mb-1">
+                    Prontuários
+                </h2>
+
+                <p class="section-text mb-0">
+                    Visualize todos os prontuários cadastrados no sistema.
+                </p>
+
+            </div>
+
+            <a href="{% url 'prontuario-create' %}" class="btn btn-primary">
+                Novo Prontuário
+            </a>
+
+        </div>
+
+        <div class="hero-card">
+
+            <div class="table-responsive">
+
+                <table class="table align-middle">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Consulta</th>
+                            <th>Paciente</th>
+                            <th>Profissional</th>
+                            <th>Registro</th>
+                            <th class="text-center">Ações</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for prontuario in object_list %}
+
+                        <tr>
+
+                            <td>
+                                {{ prontuario.consulta }}
+                            </td>
+
+                            <td>
+                                {{ prontuario.paciente }}
+                            </td>
+
+                            <td>
+                                {{ prontuario.profissional }}
+                            </td>
+
+                            <td>
+                                {{ prontuario.data_registro }}
+                            </td>
+
+                            <td class="text-center">
+
+                                <a href="{% url 'prontuario-detail' prontuario.pk %}"
+                                   class="btn btn-sm btn-outline-primary">
+                                    Detalhes
+                                </a>
+
+                                <a href="{% url 'prontuario-update' prontuario.pk %}"
+                                   class="btn btn-sm btn-outline-warning">
+                                    Editar
+                                </a>
+
+                                <a href="{% url 'prontuario-delete' prontuario.pk %}"
+                                   class="btn btn-sm btn-outline-danger">
+                                    Excluir
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+                        {% empty %}
+
+                        <tr>
+
+                            <td colspan="5" class="text-center py-4">
+                                Nenhum prontuário cadastrado.
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends "website/model.html" %}
+
+{% block title %}
+Lista de Pacientes | ConectaPsi
+{% endblock %}
+
+{% block conteudo %}
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <div>
+
+                <h2 class="section-title mb-1">
+                    Pacientes
+                </h2>
+
+                <p class="section-text mb-0">
+                    Visualize todos os pacientes cadastrados no sistema.
+                </p>
+
+            </div>
+
+            <a href="{% url 'paciente-create' %}" class="btn btn-primary">
+                Novo Paciente
+            </a>
+
+        </div>
+
+        <div class="hero-card">
+
+            <div class="table-responsive">
+
+                <table class="table align-middle">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Paciente</th>
+                            <th>CPF</th>
+                            <th>Telefone</th>
+                            <th>Nascimento</th>
+                            <th class="text-center">Ações</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for paciente in object_list %}
+
+                        <tr>
+
+                            <td>
+                                {{ paciente.user.get_full_name|default:paciente.user.username }}
+                            </td>
+
+                            <td>
+                                {{ paciente.cpf }}
+                            </td>
+
+                            <td>
+                                {{ paciente.telefone }}
+                            </td>
+
+                            <td>
+                                {{ paciente.data_nascimento }}
+                            </td>
+
+                            <td class="text-center">
+
+                                <a href="{% url 'paciente-detail' paciente.pk %}"
+                                   class="btn btn-sm btn-outline-primary">
+                                    Detalhes
+                                </a>
+
+                                <a href="{% url 'paciente-update' paciente.pk %}"
+                                   class="btn btn-sm btn-outline-warning">
+                                    Editar
+                                </a>
+
+                                <a href="{% url 'paciente-delete' paciente.pk %}"
+                                   class="btn btn-sm btn-outline-danger">
+                                    Excluir
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+                        {% empty %}
+
+                        <tr>
+
+                            <td colspan="5" class="text-center py-4">
+                                Nenhum paciente cadastrado.
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

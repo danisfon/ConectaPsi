@@ -1,0 +1,81 @@
+{% extends "website/model.html" %}
+
+{% block title %}
+Detalhes da Especialidade | ConectaPsi
+{% endblock %}
+
+{% block conteudo %}
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="hero-card">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+                        <div>
+
+                            <h2 class="section-title mb-1">
+                                Detalhes da Especialidade
+                            </h2>
+
+                            <p class="section-text mb-0">
+                                Informações completas da especialidade.
+                            </p>
+
+                        </div>
+
+                        <a href="{% url 'especialidade-list' %}" class="btn btn-outline-primary">
+                            Voltar
+                        </a>
+
+                    </div>
+
+                    <div class="row g-4">
+
+                        <div class="col-12">
+
+                            <div class="mini-card">
+
+                                <strong>Nome</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.nome }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12">
+
+                            <div class="mini-card">
+
+                                <strong>Descrição</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.descricao|default:"Sem descrição" }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

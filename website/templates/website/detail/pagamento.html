@@ -1,0 +1,137 @@
+{% extends "website/model.html" %}
+
+{% block title %}
+Detalhes do Pagamento | ConectaPsi
+{% endblock %}
+
+{% block conteudo %}
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="hero-card">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+                        <div>
+
+                            <h2 class="section-title mb-1">
+                                Detalhes do Pagamento
+                            </h2>
+
+                            <p class="section-text mb-0">
+                                Informações completas do pagamento.
+                            </p>
+
+                        </div>
+
+                        <a href="{% url 'pagamento-list' %}" class="btn btn-outline-primary">
+                            Voltar
+                        </a>
+
+                    </div>
+
+                    <div class="row g-4">
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Consulta</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.consulta }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Valor</strong>
+
+                                <p class="mb-0 mt-2">
+                                    R$ {{ object.valor }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Status</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.status }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Método</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.metodo }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Data do Pagamento</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.data_pagamento|default:"-" }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Registrado em</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.criado_em }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
