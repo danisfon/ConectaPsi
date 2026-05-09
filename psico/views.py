@@ -15,9 +15,6 @@ from .models import (
 )
 
 
-# =====================================================
-# PACIENTE
-# =====================================================
 
 class PacienteCreate(CreateView):
     model = Paciente
@@ -65,10 +62,6 @@ class PacienteDetail(DetailView):
     template_name = 'website/detail/paciente.html'
 
 
-# =====================================================
-# ESPECIALIDADE
-# =====================================================
-
 class EspecialidadeCreate(CreateView):
     model = Especialidade
     fields = ['nome', 'descricao']
@@ -114,9 +107,6 @@ class EspecialidadeDetail(DetailView):
     template_name = 'website/detail/especialidade.html'
 
 
-# =====================================================
-# PROFISSIONAL
-# =====================================================
 
 class ProfissionalCreate(CreateView):
     model = Profissional
@@ -163,10 +153,6 @@ class ProfissionalDetail(DetailView):
     template_name = 'website/detail/profissional.html'
 
 
-# =====================================================
-# AGENDA
-# =====================================================
-
 class AgendaCreate(CreateView):
     model = Agenda
     fields = ['profissional', 'dia_semana', 'hora_inicio', 'hora_fim', 'ativo']
@@ -212,9 +198,6 @@ class AgendaDetail(DetailView):
     template_name = 'website/detail/agenda.html'
 
 
-# =====================================================
-# CONSULTA
-# =====================================================
 
 class ConsultaCreate(CreateView):
     model = Consulta
@@ -261,9 +244,6 @@ class ConsultaDetail(DetailView):
     template_name = 'website/detail/consulta.html'
 
 
-# =====================================================
-# PRONTUÁRIO
-# =====================================================
 
 class ProntuarioCreate(CreateView):
     model = Prontuario
@@ -326,9 +306,6 @@ class ProntuarioDetail(DetailView):
     template_name = 'website/detail/prontuario.html'
 
 
-# =====================================================
-# PAGAMENTO
-# =====================================================
 
 class PagamentoCreate(CreateView):
     model = Pagamento
