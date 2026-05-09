@@ -1,29 +1,295 @@
 {% extends "website/model.html" %}
+{% load static %}
 
-{% block title %}Sobre{% endblock %}
+{% block title %}
+Sobre | ConectaPsi
+{% endblock %}
+
+{% block hero %}
+{% endblock %}
 
 {% block conteudo %}
 
-<div class="row">
-    <div class="col-md-8">
-        <h1>Sobre a Clínica</h1>
+<section class="section">
 
-        <p>
-            Este sistema foi desenvolvido para facilitar o agendamento de atendimentos psicológicos.
-        </p>
+    <div class="container">
 
-        <p>
-            Nosso objetivo é conectar pacientes e profissionais de forma organizada e eficiente,
-            garantindo melhor experiência no atendimento.
-        </p>
-    </div>
+        <div class="text-center mb-5">
 
-    <div class="col-md-4">
-        <div class="card p-3">
-            <h5>Missão</h5>
-            <p>Promover saúde mental com tecnologia.</p>
+            <h1 class="section-title">
+                Sobre o ConectaPsi
+            </h1>
+
+            <p class="section-text">
+
+                O ConectaPsi nasceu com o propósito de tornar
+                o cuidado psicológico mais acessível,
+                organizado e acolhedor através da tecnologia.
+
+            </p>
+
         </div>
+
+        <!-- CARDS PRINCIPAIS -->
+        <div class="row g-4">
+
+            <div class="col-lg-4">
+
+                <div class="feature-card">
+
+                    <div class="mini-icon">
+                        <i class="bi bi-heart-pulse"></i>
+                    </div>
+
+                    <h4 class="mb-3">
+                        Cuidado Humanizado
+                    </h4>
+
+                    <p>
+
+                        Priorizamos uma experiência acolhedora
+                        para pacientes e profissionais.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+
+                <div class="feature-card">
+
+                    <div class="mini-icon">
+                        <i class="bi bi-lock"></i>
+                    </div>
+
+                    <h4 class="mb-3">
+                        Segurança
+                    </h4>
+
+                    <p>
+
+                        Organização e proteção das informações
+                        clínicas de forma moderna.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+
+                <div class="feature-card">
+
+                    <div class="mini-icon">
+                        <i class="bi bi-lightning"></i>
+                    </div>
+
+                    <h4 class="mb-3">
+                        Praticidade
+                    </h4>
+
+                    <p>
+
+                        Automatize agendamentos e facilite
+                        a rotina clínica diária.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- BLOCO PRINCIPAL -->
+        <div class="hero-card mt-5">
+
+            <div class="row align-items-center gy-4">
+
+                <div class="col-lg-7">
+
+                    <h2 class="mb-4">
+
+                        Psicologia e tecnologia trabalhando juntas
+
+                    </h2>
+
+                    <p style="line-height:1.9;">
+
+                        Desenvolvemos uma plataforma moderna,
+                        minimalista e intuitiva para melhorar
+                        a experiência digital em atendimentos
+                        psicológicos.
+
+                    </p>
+
+                </div>
+
+                <div class="col-lg-5">
+
+                    <div class="row g-3">
+
+                        <div class="col-6">
+
+                            <div class="mini-card text-center">
+
+                                <h2 class="highlight">
+                                    98%
+                                </h2>
+
+                                <small>
+                                    Satisfação
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+
+                            <div class="mini-card text-center">
+
+                                <h2 class="highlight">
+                                    24h
+                                </h2>
+
+                                <small>
+                                    Disponibilidade
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- DIAGRAMAS -->
+        <div class="mt-5">
+
+            <div class="text-center mb-5">
+
+                <h2 class="section-title">
+                    Estrutura do Sistema
+                </h2>
+
+                <p class="section-text">
+
+                    Diagramas utilizados no planejamento
+                    e desenvolvimento do projeto.
+
+                </p>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-lg-6">
+
+                    <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
+
+                        <div class="card-body p-4">
+
+                            <div class="d-flex align-items-center mb-3">
+
+                                <div class="mini-icon me-3">
+                                    <i class="bi bi-diagram-3"></i>
+                                </div>
+
+                                <div>
+
+                                    <h4 class="mb-0">
+                                        Diagrama de Caso de Uso
+                                    </h4>
+
+                                    <small class="text-muted">
+                                        Funcionalidades do sistema
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                            <p class="text-secondary">
+
+                                Representa as interações dos usuários
+                                com as principais funcionalidades
+                                do sistema ConectaPsi.
+
+                            </p>
+
+                            <img
+                                src="{% static 'img/diagrama_caso.png' %}"
+                                alt="Diagrama de Caso de Uso"
+                                class="img-fluid rounded-4 border"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6">
+
+                    <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
+
+                        <div class="card-body p-4">
+
+                            <div class="d-flex align-items-center mb-3">
+
+                                <div class="mini-icon me-3">
+                                    <i class="bi bi-boxes"></i>
+                                </div>
+
+                                <div>
+
+                                    <h4 class="mb-0">
+                                        Diagrama de Classes
+                                    </h4>
+
+                                    <small class="text-muted">
+                                        Estrutura da aplicação
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                            <p class="text-secondary">
+
+                                Exibe as entidades principais do sistema
+                                e os relacionamentos utilizados no banco
+                                de dados da aplicação.
+
+                            </p>
+
+                            <img
+                                src="{% static 'img/diagrama_classe.png' %}"
+                                alt="Diagrama de Classes"
+                                class="img-fluid rounded-4 border"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
-</div>
+
+</section>
 
 {% endblock %}

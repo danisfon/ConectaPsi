@@ -1,80 +1,614 @@
 {% load static %}
+{% load crispy_forms_tags %}
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
+
     <meta charset="UTF-8">
-    <title>{% block title %}ConectaPsi{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>
+        {% block title %}ConectaPsi{% endblock %}
+    </title>
 
-    <!-- Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <style>
+
+        :root{
+            --primary: #6D8B74;
+            --primary-light: #DDE5D8;
+            --secondary: #A7C4A0;
+            --dark: #2E3A34;
+            --text: #4B5563;
+            --bg: #F7F9F6;
+            --white: #FFFFFF;
+            --border: #E5E7EB;
+        }
+
+        body{
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        h1,h2,h3,h4,h5,h6{
+            font-family: 'Manrope', sans-serif;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .navbar-custom{
+            background: rgba(255,255,255,0.90);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+        }
+
+        .navbar-brand{
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--dark) !important;
+        }
+
+        .logo-icon{
+            color: var(--primary);
+        }
+
+        .nav-link{
+            color: var(--text) !important;
+            font-weight: 500;
+            transition: .3s;
+            border-radius: 12px;
+            padding: 10px 16px !important;
+        }
+
+        .nav-link:hover{
+            background: var(--primary-light);
+            color: var(--primary) !important;
+        }
+
+        .btn-main{
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            padding: 12px 24px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .btn-main:hover{
+            background: #5e7864;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .btn-soft{
+            background: var(--primary-light);
+            color: var(--primary);
+            border: none;
+            border-radius: 14px;
+            padding: 12px 24px;
+            font-weight: 600;
+        }
+
+        .hero{
+            padding-top: 150px;
+            padding-bottom: 110px;
+        }
+
+        .hero-badge{
+            background: var(--primary-light);
+            color: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            font-size: .95rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .hero-title{
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero-text{
+            font-size: 1.15rem;
+            line-height: 1.9;
+            max-width: 620px;
+            margin-bottom: 40px;
+        }
+
+        .highlight{
+            color: var(--primary);
+        }
+
+        .hero-card{
+            background: white;
+            border-radius: 28px;
+            padding: 35px;
+            border: 1px solid var(--border);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+        }
+
+        .mini-card{
+            background: #FAFAFA;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 20px;
+            height: 100%;
+        }
+
+        .mini-icon{
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            background: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .section{
+            padding: 100px 0;
+        }
+
+        .section-title{
+            font-size: 2.8rem;
+            margin-bottom: 18px;
+        }
+
+        .section-text{
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.9;
+        }
+
+        .feature-card{
+            background: white;
+            border-radius: 24px;
+            padding: 35px;
+            border: 1px solid var(--border);
+            transition: .3s;
+            height: 100%;
+        }
+
+        .feature-card:hover{
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        }
+
+        .footer{
+            border-top: 1px solid var(--border);
+            padding: 50px 0 30px;
+            background: white;
+        }
+
+        .footer-link{
+            color: var(--text);
+            transition: .3s;
+        }
+
+        .footer-link:hover{
+            color: var(--primary);
+        }
+
+        /* CRISPY FORMS */
+
+        .form-control,
+        .form-select{
+            border-radius: 14px !important;
+            padding: 14px 16px !important;
+            border: 1px solid var(--border) !important;
+            box-shadow: none !important;
+        }
+
+        .form-control:focus,
+        .form-select:focus{
+            border-color: var(--primary) !important;
+            box-shadow: 0 0 0 0.2rem rgba(109,139,116,0.15) !important;
+        }
+
+        .asteriskField{
+            display: none;
+        }
+
+        label{
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        /* RESPONSIVO */
+
+        @media(max-width:991px){
+
+            .hero-title{
+                font-size: 3rem;
+            }
+
+        }
+
+        @media(max-width:768px){
+
+            .hero{
+                padding-top: 130px;
+            }
+
+            .hero-title{
+                font-size: 2.3rem;
+            }
+
+            .section-title{
+                font-size: 2rem;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg fixed-top navbar-custom">
+
     <div class="container">
 
-        <!-- Logo -->
-        <a class="navbar-brand fw-bold" href="{% url 'index' %}">
-            🧠 ConectaPsi
+        <a class="navbar-brand"
+           href="{% url 'index' %}">
+
+            <i class="bi bi-heart-pulse-fill logo-icon"></i>
+            ConectaPsi
+
         </a>
 
-        <!-- Botão mobile -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <button class="navbar-toggler border-0 shadow-none"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu">
+
             <span class="navbar-toggler-icon"></span>
+
         </button>
 
-        <!-- Menu -->
-        <div class="collapse navbar-collapse" id="menu">
-            <ul class="navbar-nav ms-auto">
+        <div class="collapse navbar-collapse"
+             id="menu">
+
+            <ul class="navbar-nav mx-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'index' %}">
-                        <i class="bi bi-house"></i> Início
+                    <a class="nav-link"
+                       href="{% url 'index' %}">
+                        Início
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'sobre' %}">
-                        <i class="bi bi-info-circle"></i> Sobre
+                    <a class="nav-link"
+                       href="{% url 'sobre' %}">
+                        Sobre
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'contato' %}">
-                        <i class="bi bi-envelope"></i> Contato
+                    <a class="nav-link"
+                       href="{% url 'contato' %}">
+                        Contato
                     </a>
                 </li>
 
             </ul>
+
+            <div class="d-flex gap-2 mt-3 mt-lg-0">
+
+                <a href="#"
+                   class="btn btn-soft">
+                    Entrar
+                </a>
+
+                <a href="#"
+                   class="btn btn-main">
+                    Agendar
+                </a>
+
+            </div>
+
         </div>
+
     </div>
+
 </nav>
 
-<!-- ================= CONTEÚDO ================= -->
-<main class="container mt-4">
+<!-- HERO -->
+
+{% block hero %}
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="row align-items-center gy-5">
+
+            <div class="col-lg-6">
+
+                <div class="hero-badge">
+
+                    <i class="bi bi-stars"></i>
+
+                    Plataforma de Psicologia Moderna
+
+                </div>
+
+                <h1 class="hero-title">
+
+                    Tecnologia para
+                    <span class="highlight">
+                        cuidar da mente
+                    </span>
+
+                </h1>
+
+                <p class="hero-text">
+
+                    O ConectaPsi foi criado para facilitar
+                    atendimentos psicológicos com uma experiência
+                    leve, organizada e acolhedora.
+
+                </p>
+
+                <div class="d-flex flex-wrap gap-3">
+
+                    <a href="#"
+                       class="btn btn-main">
+
+                        <i class="bi bi-calendar-check me-2"></i>
+                        Agendar Consulta
+
+                    </a>
+
+                    <a href="{% url 'sobre' %}"
+                       class="btn btn-soft">
+
+                        Conhecer Plataforma
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <div class="hero-card">
+
+                    <div class="row g-3">
+
+                        <div class="col-6">
+
+                            <div class="mini-card">
+
+                                <div class="mini-icon">
+                                    <i class="bi bi-heart"></i>
+                                </div>
+
+                                <h4>Humanizado</h4>
+
+                                <p class="mb-0">
+                                    Atendimento acolhedor
+                                    e intuitivo.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+
+                            <div class="mini-card">
+
+                                <div class="mini-icon">
+                                    <i class="bi bi-shield-check"></i>
+                                </div>
+
+                                <h4>Seguro</h4>
+
+                                <p class="mb-0">
+                                    Dados protegidos
+                                    e organizados.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12">
+
+                            <div class="mini-card">
+
+                                <div class="d-flex justify-content-between mb-2">
+
+                                    <span>
+                                        Satisfação dos pacientes
+                                    </span>
+
+                                    <strong>
+                                        96%
+                                    </strong>
+
+                                </div>
+
+                                <div class="progress"
+                                     style="height:10px; border-radius:999px;">
+
+                                    <div class="progress-bar"
+                                         style="
+                                            width:96%;
+                                            background: var(--primary);
+                                         ">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock hero %}
+
+<!-- CONTEÚDO -->
+
+<main>
 
     {% block conteudo %}
-    <!-- conteúdo das páginas -->
     {% endblock %}
 
 </main>
 
-<!-- ================= FOOTER ================= -->
-<footer class="bg-light text-center py-3 mt-5">
-    <small>
-        © 2026 ConectaPsi - Sistema de Agendamento Psicológico
-    </small>
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="row gy-4">
+
+            <div class="col-lg-4">
+
+                <h4 class="mb-3">
+                    ConectaPsi
+                </h4>
+
+                <p>
+                    Plataforma desenvolvida para conectar
+                    pacientes e profissionais da psicologia
+                    com praticidade e acolhimento.
+                </p>
+
+            </div>
+
+            <div class="col-lg-2 col-6">
+
+                <h6 class="mb-3">
+                    Navegação
+                </h6>
+
+                <div class="d-flex flex-column gap-2">
+
+                    <a href="{% url 'index' %}"
+                       class="footer-link">
+                        Início
+                    </a>
+
+                    <a href="{% url 'sobre' %}"
+                       class="footer-link">
+                        Sobre
+                    </a>
+
+                    <a href="{% url 'contato' %}"
+                       class="footer-link">
+                        Contato
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-6">
+
+                <h6 class="mb-3">
+                    Serviços
+                </h6>
+
+                <div class="d-flex flex-column gap-2">
+
+                    <span>
+                        Psicoterapia
+                    </span>
+
+                    <span>
+                        Atendimento Online
+                    </span>
+
+                    <span>
+                        Gestão Clínica
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <h6 class="mb-3">
+                    Contato
+                </h6>
+
+                <p class="mb-2">
+                    contato@conectapsi.com
+                </p>
+
+                <p>
+                    (46) 99999-9999
+                </p>
+
+            </div>
+
+        </div>
+
+        <hr class="my-4">
+
+        <div class="text-center">
+
+            © 2026 ConectaPsi • Todos os direitos reservados
+
+        </div>
+
+    </div>
+
 </footer>
 
-<!-- ================= SCRIPTS ================= -->
+<!-- Bootstrap JS -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

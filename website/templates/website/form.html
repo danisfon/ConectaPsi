@@ -1,0 +1,61 @@
+{% extends "website/model.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+{{ titulo }} | ConectaPsi
+{% endblock %}
+
+{% block conteudo %}
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="hero-card">
+
+                    <div class="mb-4 text-center">
+
+                        <h2 class="section-title">
+                            {{ titulo }}
+                        </h2>
+
+                        <p class="section-text">
+                            Preencha os dados abaixo para continuar.
+                        </p>
+
+                    </div>
+
+                    <form method="post">
+
+                        {% csrf_token %}
+
+                        {{ form|crispy }}
+
+                        <div class="d-flex justify-content-end mt-4">
+
+                            <button type="submit" class="btn btn-primary px-4 py-2">
+
+                                {{ botao }}
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

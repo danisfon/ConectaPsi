@@ -1,0 +1,139 @@
+{% extends "website/model.html" %}
+
+{% block title %}
+Detalhes da Consulta | ConectaPsi
+{% endblock %}
+
+{% block conteudo %}
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="hero-card">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+                        <div>
+
+                            <h2 class="section-title mb-1">
+                                Detalhes da Consulta
+                            </h2>
+
+                            <p class="section-text mb-0">
+                                Informações completas da consulta agendada.
+                            </p>
+
+                        </div>
+
+                        <a href="{% url 'consulta-list' %}" class="btn btn-outline-primary">
+
+                            Voltar
+
+                        </a>
+
+                    </div>
+
+                    <div class="row g-4">
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Paciente</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.paciente }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Profissional</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.profissional }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Data</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.data }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mini-card">
+
+                                <strong>Hora</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.hora }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12">
+
+                            <div class="mini-card">
+
+                                <strong>Status</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.status }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12">
+
+                            <div class="mini-card">
+
+                                <strong>Motivo da Consulta</strong>
+
+                                <p class="mb-0 mt-2">
+                                    {{ object.motivo }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
