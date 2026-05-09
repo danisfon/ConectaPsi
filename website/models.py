@@ -24,7 +24,8 @@ class Paciente(models.Model):
 
     user = models.OneToOneField(
         User,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name="website_paciente"
     )
 
     cpf = models.CharField(
@@ -61,7 +62,8 @@ class Profissional(models.Model):
 
     user = models.OneToOneField(
         User,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name="website_profissional"
     )
 
     especialidade = models.ForeignKey(
